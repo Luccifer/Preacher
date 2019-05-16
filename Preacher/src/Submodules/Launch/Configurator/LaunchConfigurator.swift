@@ -1,5 +1,5 @@
 //
-//  RootConfigurator.swift
+//  LaunchConfigurator.swift
 //  toskana
 //
 //  Created by Gleb Karpushkin on 15/05/2019.
@@ -8,25 +8,25 @@
 
 import UIKit
 
-class RootModuleConfigurator {
+class LaunchModuleConfigurator {
 
     func configureModuleForViewInput<UIViewController>(_ viewInput: UIViewController) {
 
-        if let viewController = viewInput as? RootViewController {
+        if let viewController = viewInput as? LaunchViewController {
             configure(viewController)
         }
     }
 
-    private func configure(_ viewController: RootViewController) {
+    private func configure(_ viewController: LaunchViewController) {
 
-        let router = RootRouter()
+        let router = LaunchRouter()
         router.view = viewController
 
-        let presenter = RootPresenter()
+        let presenter = LaunchPresenter()
         presenter.view = viewController
         presenter.router = router
 
-        let interactor = RootInteractor()
+        let interactor = LaunchInteractor()
         interactor.output = presenter
 
         presenter.interactor = interactor

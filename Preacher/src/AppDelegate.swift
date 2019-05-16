@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        setupNavigationRouter()
         // Override point for customization after application launch.
         return true
     }
@@ -89,5 +90,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+}
+
+extension AppDelegate {
+    
+    func setupNavigationRouter() {
+        setupAppWindow()
+        let launchSB = UIStoryboard(name: "Launch", bundle: nil)
+        let launchVC = launchSB.instantiateViewController(withIdentifier: "LaunchViewController")
+        let navigationVC = UINavigationController(rootViewController: launchVC)
+        navigationVC.setNavigationBarHidden(true, animated: false)
+        window?.rootViewController = navigationVC
+        window?.makeKeyAndVisible()
+    }
+    
+    func setupAppWindow() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = .black
+        window?.rootViewController = UINavigationController()
+    }
 }
 
