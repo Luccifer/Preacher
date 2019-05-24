@@ -74,3 +74,15 @@ fastlane/test_output
 *.rambaspec
 
 Rambafile
+
+Podfile\.lock
+
+Pods/Manifest\.lock
+
+Pods/Pods\.xcodeproj/
+
+Pods/Target Support Files/Pods-Preacher/
+
+*.pch
+
+Pods/
